@@ -1,0 +1,15 @@
+Current coverage is now 90% line, 80% branch after adding edge case tests.
+
+Looking at the coverage report, these areas remain untested:
+- No validation for None or invalid inputs
+- Large arrays (n > 100) for performance validation
+- The 'n' parameter is actually unused in the implementation
+- Complex patterns of partial duplicates
+
+Generate pytest tests specifically targeting these uncovered branches and edge cases.
+Focus on:
+1. Large arrays (1000+ elements)
+2. Complex duplicate patterns
+3. Arrays with only one unique element
+
+Provide complete test functions with clear docstrings.

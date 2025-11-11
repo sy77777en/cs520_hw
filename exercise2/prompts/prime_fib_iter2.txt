@@ -1,0 +1,14 @@
+Coverage now 85% line, 78% branch after adding helper function tests.
+
+Remaining uncovered areas:
+- Early loop iterations in Fibonacci generation
+- Count increment timing
+- Sequence correctness validation
+
+Generate tests that:
+1. Verify sequential calls produce consistent results
+2. Validate that results are actually in the Fibonacci sequence
+3. Test with larger n values (n > 7)
+4. Confirm both primality AND Fibonacci membership
+
+Provide complete test functions.

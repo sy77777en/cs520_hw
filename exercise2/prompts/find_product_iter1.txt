@@ -1,0 +1,28 @@
+Analyze this Python function that finds the product of non-repeated elements:
+```python
+from collections import Counter
+from functools import reduce
+from operator import mul
+
+def find_Product(arr, n):
+    element_count = Counter(arr)
+    non_repeated_elements = [element for element, count in 
+                             element_count.items() if count == 1]
+    if not non_repeated_elements:
+        return 1
+    return reduce(mul, non_repeated_elements, 1)
+```
+
+Current coverage: 85% line, 68% branch.
+The baseline tests cover normal cases but miss edge cases.
+
+Generate pytest unit tests that cover:
+1. Empty array inputs
+2. Arrays with all duplicate elements
+3. Arrays containing zeros
+4. Arrays with negative numbers
+5. Single-element arrays
+6. Cases where n parameter doesn't match array length
+
+Provide complete test functions following pytest conventions.
+Each test should have a docstring explaining what it validates.

@@ -1,0 +1,30 @@
+Analyze this function that returns the n-th prime Fibonacci number:
+```python
+def is_prime(p):
+    if p < 2:
+        return False
+    for k in range(2, int(p**0.5) + 1):
+        if p % k == 0:
+            return False
+    return True
+
+def prime_fib(n: int) -> int:
+    fib1, fib2 = 0, 1
+    count = 0
+    while True:
+        fib1, fib2 = fib2, fib1 + fib2
+        if is_prime(fib1):
+            count += 1
+            if count == n:
+                return fib1
+```
+
+Current coverage: 75% line, 62% branch.
+
+Generate pytest tests for uncovered branches:
+1. Edge cases for is_prime helper (0, 1, 2, 3, composite numbers)
+2. First few values (n=1, 2, 3) explicitly
+3. Validation of primality testing logic
+4. Tests for the helper function is_prime separately
+
+Provide complete test functions with docstrings.

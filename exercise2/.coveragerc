@@ -1,0 +1,12 @@
+[run]
+source = src
+omit = 
+    */tests/*
+    */exercise1_originals/*
+
+[report]
+precision = 2
+show_missing = True
+
+[html]
+directory = coverage_reports/htmlcov
