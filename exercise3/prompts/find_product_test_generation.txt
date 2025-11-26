@@ -1,0 +1,73 @@
+PROMPT FOR TEST GENERATION: find_Product
+=========================================
+
+Based on the following formal specifications for find_Product(arr, n) -> int, generate pytest unit tests.
+
+CORRECTED SPECIFICATIONS:
+
+1. If all elements appear more than once, result is 1
+   ```python
+   unique_count = sum(1 for elem in set(arr) if arr.count(elem) == 1)
+   assert (unique_count == 0 and res == 1) or (unique_count > 0)
+   ```
+
+2. Result is product of elements that appear exactly once
+   ```python
+   unique_elems = tuple(elem for elem in set(arr) if arr.count(elem) == 1)
+   if len(unique_elems) == 0:
+       assert res == 1
+   else:
+       product = 1
+       for elem in unique_elems:
+           product *= elem
+       assert res == product
+   ```
+
+3. If array is empty, result is 1
+   ```python
+   assert (len(arr) > 0) or (res == 1)
+   ```
+
+4. If array contains zero and zero appears once, result is 0
+   ```python
+   assert (0 not in arr) or (arr.count(0) != 1) or (res == 0)
+   ```
+
+5. Result sign depends on count of negative unique elements
+   ```python
+   unique_elems = tuple(elem for elem in set(arr) if arr.count(elem) == 1)
+   if len(unique_elems) > 0 and 0 not in unique_elems:
+       neg_count = sum(1 for elem in unique_elems if elem < 0)
+       if neg_count % 2 == 0:
+           assert res > 0
+       else:
+           assert res < 0
+   elif 0 in unique_elems and arr.count(0) == 1:
+       assert res == 0
+   ```
+
+REQUIREMENTS:
+
+Generate pytest test functions that validate these specifications. Each test should:
+- Test one or more specific specifications
+- Include a descriptive docstring explaining what it validates
+- Use meaningful test names (e.g., test_spec1_all_duplicates_returns_one)
+- Follow pytest conventions
+- Use @pytest.mark.spec_guided decorator
+- Be organized in a class called TestFindProductSpecGuided
+
+EXPECTED OUTPUT FORMAT:
+```python
+import pytest
+from src.find_product import find_Product
+
+class TestFindProductSpecGuided:
+    @pytest.mark.spec_guided
+    def test_spec1_[name](self):
+        """Docstring explaining what this tests"""
+        # test code here
+    
+    # ... more tests
+```
+
+Generate the complete test file now.

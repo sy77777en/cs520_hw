@@ -1,0 +1,31 @@
+PROMPT FOR SPECIFICATION GENERATION: prime_fib
+==============================================
+
+Problem description: Return the n-th number that is both a Fibonacci number and prime. The Fibonacci sequence is defined as F(0)=0, F(1)=1, and F(n)=F(n-1)+F(n-2) for n>1. A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+Method signature: def prime_fib(n: int) -> int
+
+Please write formal specifications as Python assertions that describe the correct behavior of this method. Let 'res' denote the expected return value of 'prime_fib(n)'.
+
+IMPORTANT CONSTRAINTS:
+- Do not call 'prime_fib()' in your assertions (no self-reference)
+- Do not use methods with side effects such as:
+  * print, file I/O operations
+  * random number generation
+  * timing functions (datetime.now(), time.time())
+  * data structure modifications (list.append(), dict assignment, set.add())
+- Express the relationship between 'n' and 'res' using pure arithmetic and boolean logic only
+- Generate about 5 specifications as assertions
+
+EXPECTED OUTPUT FORMAT:
+```python
+# Specification 1: [Description]
+assert [condition]
+
+# Specification 2: [Description]
+assert [condition]
+
+# ... etc
+```
+
+Generate the specifications now.

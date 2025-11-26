@@ -1,0 +1,32 @@
+PROMPT FOR SPECIFICATION GENERATION: find_Product
+=================================================
+
+Problem description: Write a function to find the product of the unique elements in a given list. The function takes in a list and the length of the list, and should return the product of all elements that appear exactly once in the list. If there are no unique elements, return 1.
+
+Method signature: def find_Product(arr, n) -> int
+
+Please write formal specifications as Python assertions that describe the correct behavior of this method. Let 'res' denote the expected return value of 'find_Product(arr, n)'.
+
+IMPORTANT CONSTRAINTS:
+- Do not call 'find_Product()' in your assertions (no self-reference)
+- Do not use methods with side effects such as:
+  * print, file I/O operations
+  * random number generation
+  * timing functions (datetime.now(), time.time())
+  * data structure modifications (list.append(), dict[key] = value, set.add())
+- Express the relationship between 'arr', 'n', and 'res' using pure arithmetic and boolean logic only
+- You may use built-in immutable operations like arr.count(), set(arr), len(arr), tuple comprehensions
+- Generate about 5 specifications as assertions
+
+EXPECTED OUTPUT FORMAT:
+```python
+# Specification 1: [Description]
+assert [condition]
+
+# Specification 2: [Description]
+assert [condition]
+
+# ... etc
+```
+
+Generate the specifications now.

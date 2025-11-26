@@ -1,0 +1,65 @@
+PROMPT FOR TEST GENERATION: prime_fib
+======================================
+
+Based on the following formal specifications for prime_fib(n: int) -> int, generate pytest unit tests.
+
+CORRECTED SPECIFICATIONS:
+
+1. Result must be greater than 1 (all primes are > 1)
+   ```python
+   assert res > 1
+   ```
+
+2. Result must be prime (no divisors between 2 and sqrt(res))
+   ```python
+   assert all(res % k != 0 for k in range(2, int(res**0.5) + 1))
+   ```
+
+3. Result must be in Fibonacci sequence (using perfect square property)
+   ```python
+   def is_perfect_square(x):
+       if x < 0:
+           return False
+       root = int(x**0.5)
+       return root * root == x
+   
+   assert is_perfect_square(5 * res * res + 4) or is_perfect_square(5 * res * res - 4)
+   ```
+
+4. For n >= 1, result must be at least 2
+   ```python
+   assert (n < 1) or (res >= 2)
+   ```
+
+5. Results match known prime Fibonacci sequence
+   ```python
+   known_prime_fibs = (2, 3, 5, 13, 89, 233, 1597, 28657, 514229, 433494437)
+   if 1 <= n <= len(known_prime_fibs):
+       assert res == known_prime_fibs[n-1]
+   ```
+
+REQUIREMENTS:
+
+Generate pytest test functions that validate these specifications. Each test should:
+- Test one or more specific specifications
+- Include a descriptive docstring explaining what it validates
+- Use meaningful test names (e.g., test_spec1_result_greater_than_one)
+- Follow pytest conventions
+- Use @pytest.mark.spec_guided decorator
+- Be organized in a class called TestPrimeFibSpecGuided
+
+EXPECTED OUTPUT FORMAT:
+```python
+import pytest
+from src.prime_fib import prime_fib
+
+class TestPrimeFibSpecGuided:
+    @pytest.mark.spec_guided
+    def test_spec1_[name](self):
+        """Docstring explaining what this tests"""
+        # test code here
+    
+    # ... more tests
+```
+
+Generate the complete test file now.
